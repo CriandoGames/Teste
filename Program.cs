@@ -1,11 +1,9 @@
 ﻿
 using Teste.tabuleiro;
 
-Position position;
+Board tab = new Board(8, 8);
 
-position = new Position(3, 4);
-
-System.Console.WriteLine("Position " + position);
+Screen.showBoard(tab);
 
 Console.ReadLine();
 
