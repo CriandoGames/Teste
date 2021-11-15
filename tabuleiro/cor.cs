@@ -1,6 +1,6 @@
 namespace Teste.tabuleiro
 {
-   public enum Color
+    public enum Color
     {
         branca,
         preta,
