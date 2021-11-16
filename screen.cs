@@ -1,3 +1,5 @@
+using Teste.xadrez;
+
 namespace Teste.tabuleiro
 {
     public class Screen
@@ -26,6 +28,14 @@ namespace Teste.tabuleiro
             }
             System.Console.WriteLine("  a b c d e f g h");
         }
+
+        public static PositionXadrez readPositionXadrez(){
+            string s = Console.ReadLine()!;
+            char column = s[0];
+            int row = int.Parse(s[1] + "");
+            return new PositionXadrez(column, row);
+        }
+
 
         public static void showColorPiece(Piece piece)
         {

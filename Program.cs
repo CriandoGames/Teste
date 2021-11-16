@@ -2,19 +2,34 @@
 using Teste.pieces;
 using Teste.tabuleiro;
 using Teste.tabuleiro.errors;
-
-Board tab = new Board(8, 8);
+using Teste.xadrez;
 
 
 try
 {
+    PlayXadrez p = new PlayXadrez();
 
-    tab.putPiece(new Tower(Color.branca, tab), new Position(1, 4));
-    tab.putPiece(new Tower(Color.branca, tab), new Position(1, 3));
-    tab.putPiece(new king(Color.branca, tab), new Position(2, 4));
+    while(!p.isFinished)
+    {
+        try
+        {
+            Console.Clear();
+            Screen.showBoard(p.board);
+
+            Console.Write("Origem: ");
+            Position origen = Screen.readPositionXadrez().toPosition();
+             Console.Write("Destino: ");
+            Position destino = Screen.readPositionXadrez().toPosition();
+
+            p.play(origen, destino);
+        }
+        catch(BoardException e)
+        {
+            Console.WriteLine(e.Message);
+        }
+    }
 
 
-    Screen.showBoard(tab);
 }
 catch (BoardException e)
 {

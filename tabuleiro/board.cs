@@ -6,7 +6,7 @@ namespace Teste.tabuleiro
     {
         public int rows { get; set; }
         public int columns { get; set; }
-        private Piece[,] pieces;
+        private Piece?[,] pieces;
 
 
         public Board(int rows, int columns)
@@ -18,12 +18,12 @@ namespace Teste.tabuleiro
 
         public Piece piece(int row, int column)
         {
-            return pieces[row, column];
+            return pieces[row, column]!;
         }
 
         public Piece piece(Position pos)
         {
-            return pieces[pos.Row, pos.Column];
+            return pieces[pos.Row, pos.Column]!;
         }
 
         public bool existPiece(Position pos)
@@ -42,6 +42,18 @@ namespace Teste.tabuleiro
             }
             pieces[pos.Row, pos.Column] = p;
             p.position = pos;
+        }
+
+        public Piece? removePiece(Position pos)
+        {
+            if (piece(pos) == null)
+            {
+                return null ;
+            }
+            Piece aux = piece(pos);
+            aux.position = null;
+            pieces[pos.Row, pos.Column] = null;
+            return aux;
         }
 
 

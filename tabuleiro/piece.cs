@@ -15,5 +15,10 @@ namespace Teste.tabuleiro
             this.board = board;
         }
 
+        public void incrementAmountOfMovements()
+        {
+            amountOfMovements++;
+        }
+
     }
 }
